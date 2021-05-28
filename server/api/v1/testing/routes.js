@@ -1,6 +1,12 @@
 const router = require('express').Router();
-const controller = require('./controller');
-const {body} = require('../../../config/logger')
+
+const config = require('../../../config');
+const connection = require('../../../database')(config.database);
+const repository = require('../../../../src/event/infrastructure/mysqlRepository')(connection.con);
+const createUseCase = require('../../../../src/event/application/create')(repository);
+const controller = require('./controller')(createUseCase);
+
+const {body} = require('../../../config/logger');
 
 router.route('/')
     .post(body, controller.create)

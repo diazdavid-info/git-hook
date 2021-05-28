@@ -20,6 +20,7 @@
     "express-request-id": "^1.4.1",
     "fs": "0.0.1-security",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "path": "^0.12.7",
     "strip-final-newline": "^2.0.0",
     "winston": "^3.3.3"
